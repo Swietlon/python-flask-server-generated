@@ -16,7 +16,7 @@ def addition_get(x, y):  # noqa: E501
 
     :rtype: float
     """
-    return 'do some magic!'
+    return str(x+y)
 
 
 def division_get(x, y):  # noqa: E501
@@ -31,8 +31,9 @@ def division_get(x, y):  # noqa: E501
 
     :rtype: float
     """
-    return 'do some magic!'
-
+    if y != 0:
+        return str(x/y)
+    return "wrong param"
 
 def multiplication_get(x, y):  # noqa: E501
     """multiplication_get
@@ -46,7 +47,7 @@ def multiplication_get(x, y):  # noqa: E501
 
     :rtype: float
     """
-    return 'do some magic!'
+    return str(x*y)
 
 
 def substraction_get(x, y):  # noqa: E501
@@ -61,4 +62,4 @@ def substraction_get(x, y):  # noqa: E501
 
     :rtype: float
     """
-    return 'do some magic!'
+    return str(x-y)
