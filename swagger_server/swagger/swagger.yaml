@@ -1,0 +1,162 @@
+openapi: 3.0.0
+info:
+  title: Simple calc API
+  description: This a simple API
+  version: 1.0.0
+servers:
+- url: /
+paths:
+  /addition:
+    get:
+      description: Returns sum of x and y
+      operationId: addition_get
+      parameters:
+      - name: x
+        in: query
+        description: First element of sum
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: number
+          format: float
+          example: 1
+      - name: y
+        in: query
+        description: Second element of sum
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: number
+          format: float
+          example: 7
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: number
+                format: float
+                example: 8
+                x-content-type: application/json
+        400:
+          description: Something went wrong
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+  /substraction:
+    get:
+      description: Returns the difference x and y
+      operationId: substraction_get
+      parameters:
+      - name: x
+        in: query
+        description: The minuend
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: number
+          format: float
+          example: 24
+      - name: y
+        in: query
+        description: The subtrahend
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: number
+          format: float
+          example: 36
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: number
+                format: float
+                example: -12
+                x-content-type: application/json
+        400:
+          description: Something went wrong
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+  /multiplication:
+    get:
+      description: Returns product of x and y
+      operationId: multiplication_get
+      parameters:
+      - name: x
+        in: query
+        description: First element of product
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: number
+          format: float
+          example: 2.3
+      - name: y
+        in: query
+        description: Second element of product
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: number
+          format: float
+          example: 1.5
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: number
+                format: float
+                example: 3.45
+                x-content-type: application/json
+        400:
+          description: Something went wrong
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+  /division:
+    get:
+      description: Returns quotient of x and y
+      operationId: division_get
+      parameters:
+      - name: x
+        in: query
+        description: The dividend
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: number
+          format: float
+          example: 84
+      - name: y
+        in: query
+        description: The divider
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: number
+          format: float
+          example: 3
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: number
+                format: float
+                example: 26
+                x-content-type: application/json
+        400:
+          description: Something went wrong
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+components: {}
+
